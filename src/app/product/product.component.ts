@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-product',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductComponent implements OnInit {
 
+  productName = new FormControl('');
+  price = new FormControl('');
+  productDescription = new FormControl('');
+  productImage = new FormControl(''); 
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  addProduct() {
+    this.productName.setValue('Smart watch');
   }
 
 }
