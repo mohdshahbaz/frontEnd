@@ -9,6 +9,10 @@ import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './product/product.component';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { StorageServiceModule } from 'ngx-webstorage-service';
+import { ProductService } from './product.service';
+import {MatTableModule} from '@angular/material/table';
+
  
 @NgModule({
   declarations: [
@@ -22,12 +26,14 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    StorageServiceModule,
+    MatTableModule,
     RouterModule.forRoot([
       {path: 'home', component: HomeComponent},
       {path: 'product', component: ProductComponent}
     ])
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule {  }
