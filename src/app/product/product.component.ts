@@ -41,9 +41,9 @@ export class ProductComponent implements OnInit {
   }
 
   addProduct() {
-    var len = this.productService.getDataFromLocalStorage.length;
+    // var len = this.productService.getDataFromLocalStorage.length;
      const new_product = {
-       id: len+1,
+       id : this.generateId(),
        name : this.name,
        price: this.price,
        description: this.description,
@@ -52,6 +52,10 @@ export class ProductComponent implements OnInit {
     
     this.productService.storeOnLocalStorage(new_product);
     this.onChangeDataSource();
+  }
+
+  generateId () {
+    return '_' + Math.random().toString(36).substr(2,6);
   }
 
   removeProduct(product: any) {
