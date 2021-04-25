@@ -4,7 +4,7 @@
         <div class="form-group row">
             <div class="form-group col">
                 <label for="name">Name</label>
-                <input type="email" class="form-control" [formControl]="name" id="name" placeholder="Enter product name">
+                <input type="email" class="form-control" [formControl]="name" id="name" placeholder="Enter product name" required>
             </div>
 
             <div class="form-group col">
@@ -36,9 +36,11 @@
     <section class='products'>
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width:100%">
             <!-- Position Column -->
-            <ng-container matColumnDef="position">
-                <th mat-header-cell *matHeaderCellDef> No. </th>
-                <td mat-cell *matCellDef="let product"> {{product.position}} </td>
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef> Action </th>
+                <td mat-cell *matCellDef="let product">  
+                    <button class='btn btn-danger' (click)="removeProduct(product)">Remove</button> 
+                </td>
             </ng-container>
 
             <!-- Name Column -->
@@ -61,7 +63,7 @@
 
             <ng-container matColumnDef="image">
                 <th mat-header-cell *matHeaderCellDef> Image </th>
-                <td mat-cell *matCellDef="let product">  <img [src]="product.image" style="height:100px;width:100px"/> </td>
+                <td mat-cell *matCellDef="let product">  <img [src]=product.image style="height:100px;width:100px"/> </td>
             </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

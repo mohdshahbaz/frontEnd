@@ -12,6 +12,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { StorageServiceModule } from 'ngx-webstorage-service';
 import { ProductService } from './product.service';
 import {MatTableModule} from '@angular/material/table';
+import {MatCardModule} from '@angular/material/card';
+
 
  
 @NgModule({
@@ -28,6 +30,7 @@ import {MatTableModule} from '@angular/material/table';
     ReactiveFormsModule,
     StorageServiceModule,
     MatTableModule,
+    MatCardModule,
     RouterModule.forRoot([
       {path: 'home', component: HomeComponent},
       {path: 'product', component: ProductComponent}

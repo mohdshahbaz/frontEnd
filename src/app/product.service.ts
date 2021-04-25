@@ -21,7 +21,7 @@ export class ProductService {
 
   constructor(@Inject(LOCAL_STORAGE) private storage: StorageService) { }
 
-  public storeOnLocalStorage(product: Product): void {
+  public storeOnLocalStorage(product: any): void {
     // get array of products from local storage
     const currentProductList = this.storage.get('local_product') || [];
 
@@ -41,11 +41,26 @@ export class ProductService {
   }
 
   // remove data from local storage
+  public removeProductFromStorage(product:any) {
+    debugger;
+    var products:any[] = this.storage.get('local_product');
 
-  // public removeDataFromStorage(id: any) {
-  //   const products = this.storage.get('local_product');
-  //   this.storage.set('local_product', filtered);
-  // }
+    if(products == null) {
+      return ('Products are empty')
+    } 
 
+    if(products.length == 1) {
+      this.storage.remove('local_product')
+      return;
+    }
+    
+    {
+      this.storage.remove('local_product');
+      products = products.filter(products =>{ if (products != product) return product;});
+      this.storeOnLocalStorage(products)
+
+    }
+
+  }
 
 }

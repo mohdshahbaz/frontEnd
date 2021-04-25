@@ -54,6 +54,11 @@ export class ProductComponent implements OnInit {
     this.onChangeDataSource();
   }
 
+  removeProduct(product: any) {
+    this.productService.removeProductFromStorage(product);
+    this.onChangeDataSource();
+  }
+
 
   getBase64(event: any) {
     const file = event.target.files[0];
@@ -68,7 +73,7 @@ export class ProductComponent implements OnInit {
 
   PRODUCT_DATA: Product [] = this.productService.getDataFromLocalStorage();
   
-  displayedColumns: string[] = ['image', 'name', 'description', 'price'] 
+  displayedColumns: string[] = ['image', 'name', 'description', 'price', 'action'] 
   dataSource = this.PRODUCT_DATA;
 
   onChangeDataSource() {

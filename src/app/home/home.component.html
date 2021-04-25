@@ -1,13 +1,14 @@
 <!-- Images cards -->
-
-<div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="../assets/home/vintage-car.jpg" alt="Card image cap">
-    
-    <div class="row no-gutters">
-        <div class="col-12 col-sm-6 col-md-8"><h3 class="card-name">Classic car</h3></div>
-        <div class="col-6 col-md-4"><h1 class="card-price">600mil</h1></div>
+<div *ngFor="let product of Products" class="flex-row">
+  <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="{{product.image}}" alt="Card image cap">
+      
+      <div class="row no-gutters">
+          <div class="col-12 col-sm-6 col-md-8"><h3 class="card-name">{{product.name.value}}</h3></div>
+          <div class="col-6 col-md-4"><h1 class="card-price">{{product.price.value}}</h1></div>
+      </div>
+    <div class="card-body">
+      <p class="card-text">{{product.description.value}}</p>
     </div>
-  <div class="card-body">
-    <p class="card-text">A classic car is an older car</p>
   </div>
 </div>
