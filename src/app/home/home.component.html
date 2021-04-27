@@ -1,14 +1,17 @@
 <!-- Images cards -->
-<div *ngFor="let product of Products" class="flex-row">
-  <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="{{product.image}}" alt="Card image cap">
-      
-      <div class="row no-gutters">
-          <div class="col-12 col-sm-6 col-md-8"><h3 class="card-name">{{product.name.value}}</h3></div>
-          <div class="col-6 col-md-4"><h1 class="card-price">{{product.price.value}}</h1></div>
+<div class="container">
+
+<div  class="flex-container">
+  <mat-card *ngFor="let product of Products">
+    <img class="card-img-top" src="{{product.image}}" alt="Card image cap">
+    <mat-card-content>
+      <div class="name-price">
+          <h2 class="card-name">{{product.name.value}}</h2>
+          <h2 class="card-price">{{product.price.value}}</h2>
       </div>
-    <div class="card-body">
       <p class="card-text">{{product.description.value}}</p>
-    </div>
-  </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
 </div>

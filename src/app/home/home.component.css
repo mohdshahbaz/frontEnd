@@ -1,20 +1,18 @@
-.card-name {
-    padding-top: 1.4em;
-    padding-left: 1em;
-    font-weight: 500;
-    font-size: 1.4em;
+mat-card {
+    margin: 1em;
+    width: 245px;
 }
 
-.card-price {
-    padding-top: 1.1em;
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.card-body {
-    font-weight: 450;
-    margin-top: -2.3em;
+.name-price {
+    justify-content: space-between;
+    display:  flex;
 }
 
-.card {
-    margin: 2em 2em 2em 8em;
+.card-text {
+    font-size: 1.1em;
 }
-

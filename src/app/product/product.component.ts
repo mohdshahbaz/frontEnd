@@ -84,5 +84,6 @@ export class ProductComponent implements OnInit {
     this.dataSource = this.productService.getDataFromLocalStorage();
     // this.dataSource = this.PRODUCT_DATA;
   }
+  
 
 }
