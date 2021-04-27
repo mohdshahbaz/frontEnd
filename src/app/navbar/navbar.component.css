@@ -1,4 +1,27 @@
-ul li {
-    font-size: 1.3em;
+.home-prod {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-items {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px;
+    font-size: large;
+}
+
+.nav-items > div > a:hover {
+    border-bottom: 5px solid cornflowerblue;
+    border-radius: 4%;
+}
+
+.home-prod {
+    margin-left: 100px;
+}
+
+.nav-items a{
+    color: black;
 }
 

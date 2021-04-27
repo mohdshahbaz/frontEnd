@@ -1,5 +1,4 @@
 
-
 .product-card {
   width: 100px;
 }
@@ -13,4 +12,8 @@
 .row > * {
   display: flex;
   flex-wrap: wrap;
+}
+
+.product-page {
+  padding: 20px;
 }
