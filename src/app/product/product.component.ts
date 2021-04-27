@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ProductService } from '../product.service';
 
-
 export interface Product {
   id: any;
   name: any;
@@ -17,7 +16,6 @@ export interface Product {
   styleUrls: ['./product.component.css']
 })
 
-
 export class ProductComponent implements OnInit {
 
   name = new FormControl('');
@@ -29,19 +27,10 @@ export class ProductComponent implements OnInit {
 
   constructor(private productService: ProductService) { }
 
-  ngOnInit(): void {
-    // const new_product = {
-    //   name : "aston martin",
-    //   price: "330k",
-    //   description: "a really cool car",
-    //   image: "ksdjk24kjjdkjfkj"
-    // }
-
-    // this.productService.storeOnLocalStorage(new_product);
-  }
+  ngOnInit(): void {}
 
   addProduct() {
-    // var len = this.productService.getDataFromLocalStorage.length;
+    // creates product object using form data.
      const new_product = {
        id : this.generateId(),
        name : this.name,
@@ -50,20 +39,23 @@ export class ProductComponent implements OnInit {
        image: this.image_base64
      }
     
+    // saves product object to local storage using product service and updates view.
     this.productService.storeOnLocalStorage(new_product);
     this.onChangeDataSource();
   }
 
+  // generates unique id for product object.
   generateId () {
     return '_' + Math.random().toString(36).substr(2,6);
   }
 
+  // removes product object from local storage and updates view.
   removeProduct(product: any) {
     this.productService.removeProductFromStorage(product);
     this.onChangeDataSource();
   }
 
-
+  // gets base64 value for the image.
   getBase64(event: any) {
     const file = event.target.files[0];
     const reader = new FileReader();
@@ -71,19 +63,20 @@ export class ProductComponent implements OnInit {
     reader.onload = () => {
         console.log(reader.result);
         this.image_base64 = reader.result;
+      }
     }
 
-    }
-
+  // retrieves products data from local storage using product service.
   PRODUCT_DATA: Product [] = this.productService.getDataFromLocalStorage();
   
-  displayedColumns: string[] = ['image', 'name', 'description', 'price', 'action'] 
+  // set "columns to display" for material table. 
+  displayedColumns: string[] = ['image', 'name', 'description', 'price', 'action']
+
+  // assing retrieved products data to materiable table dataSource. 
   dataSource = this.PRODUCT_DATA;
 
+  // refresh data source by re-retrieving on addition or removal of product object.
   onChangeDataSource() {
     this.dataSource = this.productService.getDataFromLocalStorage();
-    // this.dataSource = this.PRODUCT_DATA;
   }
-  
-
 }
