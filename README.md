@@ -1,5 +1,5 @@
 # Front end
 
-A front end for a web app 
+A front end for a web app developed using Angular 11 and deployed using netlify.
 
-Checkout the live version [here](https://angular-frontend.netlify.app/)
+Check out the live version [here](https://angular-frontend.netlify.app/)
