@@ -2,4 +2,4 @@
 
 A front end for a web app 
 
-Checkout the live version [here](angular-frontend.netlify.app)
+Checkout the live version [here](https://angular-frontend.netlify.app/)
